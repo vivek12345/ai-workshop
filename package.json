@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@langchain/anthropic": "^0.2.2",
     "@langchain/community": "^0.2.13",
     "@langchain/textsplitters": "^0.0.3",
     "dotenv": "^16.4.5",
