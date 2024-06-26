@@ -9,13 +9,3 @@ const loader = new PDFLoader(
 );
 
 const docs = await loader.load();
-
-const vectorStore = await FaissStore.fromDocuments(
-  docs,
-  new OpenAIEmbeddings()
-);
-
-const query = "What is the budget for railways?";
-const response = await vectorStore.similaritySearch(query, 1);
-
-console.log(response);
