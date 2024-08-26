@@ -2,6 +2,7 @@ import { ChatOpenAI } from "@langchain/openai";
 import dotenv from "dotenv";
 import { z } from "zod";
 
+// modify this schema
 const outputSchema = z.object({
   country: z.string().describe("The country"),
   capital: z.string().describe("The capital of the country"),
@@ -17,8 +18,7 @@ const llm = new ChatOpenAI({
 
 const llmWithJsonResponse = llm.withStructuredOutput(outputSchema);
 
-const question =
-  "What is the capital of France and also tell me the population?";
+// const question =  Try the same with also including population in json response
 
 const response = await llmWithJsonResponse.invoke(question);
 
