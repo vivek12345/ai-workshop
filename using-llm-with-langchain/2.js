@@ -1,14 +1,19 @@
-import { ChatAnthropic } from "@langchain/anthropic";
+import { ChatOpenAI } from "@langchain/openai";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const chat = new ChatAnthropic({
-  apiKey: process.env.CLAUDE_API_KEY,
-  model: "claude-3-5-sonnet-20240620",
+// we have connected to our gpt model
+// TODO: Change model to gpt-4
+const llm = new ChatOpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
-const question = "What is the capital of France?";
-const response = await chat.invoke(question);
+// we have a question
+
+const question = "What is the capital of India?";
+// we are invoking the model
+
+const response = await llm.invoke(question);
 
 console.log(response.content);
